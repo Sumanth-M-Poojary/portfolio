@@ -2,7 +2,8 @@
 
 A modern, responsive personal portfolio website built using HTML, CSS, and JavaScript.
 This project showcases my skills, projects, qualifications, and contact information in a clean and interactive UI.
-
+## preview
+click Here --> https://myportfolioweb2x.netlify.app
 # 🚀 Features
 - 🎨 Stylish dark-themed UI with gradient background
 - 📱 Fully responsive design (mobile-friendly)
@@ -28,15 +29,6 @@ This project showcases my skills, projects, qualifications, and contact informat
 - 📝 Feedback
 - 📸 Preview
 
-Add a screenshot of your portfolio here (optional)
-
-# ⚙️ How to Run
-
-- Clone the repository:
-  git clone https://github.com/your-username/your-repo-name.git
-- Open the project folder
-- Run the project:
-- Open home.html in your browser
 
  # 📬 Contact
 📧 Email: sumanthbirwaz628@gmail.com
