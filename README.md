@@ -36,7 +36,7 @@ Add a screenshot of your portfolio here (optional)
   git clone https://github.com/your-username/your-repo-name.git
 - Open the project folder
 - Run the project:
-- Open index.html in your browser
+- Open home.html in your browser
 
  # 📬 Contact
 📧 Email: sumanthbirwaz628@gmail.com
