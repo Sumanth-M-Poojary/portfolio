@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task Managment</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager </h1>
+        <form id="taskForm">
+            <input type="text" id="taskInput" placeholder="Enter a new task " required>
+            <input type="date" id="dueDate" required/>
+            <button type="submit">Add Task</button>
+        </form>
+        <ul id="taskList"></ul>
+    </div>
+</body>
+<style>
+    body{
+        background:linear-gradient(to top,red,blue) ;
+        background-repeat:no-repeat ;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100;
+        display: block;
+        margin: auto;
+        text-align: center;
+        height: 100vh;
+    }
+    .container{
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+    }
+    li{
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+    }
+    #taskInput{
+        padding: 20px;
+        width: 90%;
+        margin: auto;
+        height: 20px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+    
+
+    }
+    #dueDate{
+          padding: 20px;
+        width: 90%;
+        margin: auto;
+        height: 20px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+    }
+    button{
+        width: 60%;
+        padding: 20px;
+        border-radius:8px ;
+        background-color: darkturquoise;
+        cursor: pointer;
+    }
+    .btn{
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<script>
+  
+        const taskForm = document.getElementById('taskForm');
+        const taskInput = document.getElementById('taskInput');
+        const dueDate = document.getElementById('dueDate');
+        const taskList = document.getElementById('taskList');
+
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        function renderTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${task.text} (Due: ${task.date || 'N/A'})
+                    <button onclick="deleteTask(${index})"class="btn">Delete</button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        taskForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const newTask = {
+                text: taskInput.value,
+                date: dueDate.value
+            };
+            tasks.push(newTask);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            taskInput.value = '';
+            dueDate.value = '';
+            renderTasks();
+        });
+
+        // Initial load
+        renderTasks();
+</script>
+</html>

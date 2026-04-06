@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=auto, initial-scale=1.0">
+    <title>simple calculator</title>
+</head>
+
+<body>
+    <div class="calc">
+        <input type="text" id="display" disabled />
+        <div class="btn">
+            <button onclick="clearDisplay()">c</button>
+            <button onclick="deleteChar()">↩</button>
+            <button onclick="append('%')">%</button>
+            <button onclick="append('/')">/</button>
+            <button onclick="append('7')">7</button>
+            <button onclick="append('8')">8</button>
+            <button onclick="append('9')">9</button>
+            <button onclick="append('*')">x</button>
+            <button onclick="append('4')">4</button>
+            <button onclick="append('5')">5</button>
+            <button onclick="append('6')">6</button>
+            <button onclick="append('-')">-</button>
+            <button onclick="append('1')">1</button>
+            <button onclick="append('2')">2</button>
+            <button onclick="append('3')">3</button>
+            <button onclick="append('+')" style="height: 215%;">+</button>
+            <button onclick="append('0')">0</button>
+            <button onclick="append('.')">.</button>
+            <button onclick="calculate()">=</button>
+        </div>
+    </div>
+
+</body>
+<style>
+    body {
+        margin: 0;
+
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .calc {
+        background-color: #0066f4;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px black;
+        width: 320px;
+    }
+
+    #display {
+        width: 299px;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: right;
+        border: none;
+        background-color: white;
+        color: rgb(141, 2, 2);
+        margin-bottom: 10px;
+        height: 30px;
+         font-size: 1.5rem;
+    }
+
+    .btn {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+
+    }
+
+    button {
+        height: 60px;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(19, 225, 12);
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+
+    button:hover {
+        background-color: darkgreen;
+    }
+</style>
+<script>
+    function append(char){
+        document.getElementById('display').value += char;
+    }
+    function clearDisplay(){
+        document.getElementById('display').value='';
+    }
+    function deleteChar(){
+        const display=document.getElementById('display');
+        display.value=display.value.slice(0,-1);
+    }
+ function calculate(){
+    try{
+       result=eval(document.getElementById('display').value);
+
+        document.getElementById('display').value=result;
+    }catch(e){
+        document.getElementById('display').value='Ereor';
+    }
+ }   
+</script>
+
+</html>

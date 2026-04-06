@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumanth Portfolio</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #fff;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 6%;
+        background: rgba(0, 0, 0, 0.8);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        color: #00ffd5;
+        font-weight: bold;
+      }
+
+      .menu-icon {
+        display: none;
+        font-size: 26px;
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        width: 0;
+        height: 2px;
+        background: #00ffd5;
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .menu-icon {
+          display: block;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          width: 100%;
+          top: 60px;
+          left: 0;
+          background: #000;
+          text-align: center;
+        }
+        .nav-links.show {
+          display: flex;
+        }
+      }
+
+      /* Container */
+      .container {
+        text-align: center;
+        padding: 25px;
+      }
+
+      .container h1 {
+        color: #00ffd5;
+      }
+
+      /* Sections */
+      .section {
+        display: none;
+        margin: 20px auto;
+        padding: 25px;
+        width: 90%;
+        max-width: 900px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 20px rgba(0, 255, 213, 0.2);
+        animation: fadeIn 0.5s;
+      }
+
+      .section h2 {
+        color: #00ffd5;
+        margin-bottom: 10px;
+      }
+
+      /* Hero */
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .hero h1 span {
+        color: #00ffd5;
+      }
+
+      .hero img {
+        max-width: 250px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #00ffd5;
+      }
+
+      /* Mobile Hero */
+      @media (max-width: 768px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* Cards */
+      ul li {
+        margin: 10px 0;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      ul li:hover {
+        transform: translateY(-5px);
+        background: rgba(0, 255, 213, 0.2);
+      }
+
+      /* Links */
+      a {
+        color: #00ffd5;
+      }
+
+      /* Form */
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 8px;
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #00ffd5;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #00c4a7;
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Sumanth</div>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="showSection('home')">Home</a></li>
+        <li><a href="#" onclick="showSection('about')">About</a></li>
+        <li>
+          <a href="#" onclick="showSection('qualification')">Qualification</a>
+        </li>
+        <li><a href="#" onclick="showSection('Certification')">Certificates</a></li>
+        <li><a href="#" onclick="showSection('skills')">Skills</a></li>
+        <li><a href="#" onclick="showSection('projects')">Projects</a></li>
+        <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+        <li><a href="#" onclick="showSection('feedback')">Feedback</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <h1>WELCOME TO MY PORTFOLIO</h1>
+    </div>
+
+    <!-- Home -->
+    <div id="home" class="section" style="display: block">
+      <div class="hero">
+        <div>
+          <h1>Hi I'm <span>Sumanth</span><br /><span id="typing"></span></h1>
+        </div>
+        <img src="8e1d1480-8321-48ed-9250-5260871abb0a.jpg" />
+      </div>
+    </div>
+
+    <!-- About -->
+    <div id="about" class="section">
+      <h2>About Me</h2>
+      <p>I am a passionate Web Developer who builds modern websites.</p>
+    </div>
+
+    <!-- Qualification -->
+    <div id="qualification" class="section">
+      <h2>Qualification</h2>
+      <ul>
+        <li>BCA</li>
+        <li>MCA</li>
+        <li>Web Development Certification</li>
+      </ul>
+    </div>
+<div id="Certification" class="section">
+  <h2>Certificate</h2>
+  <img
+</div>
+    <!-- Skills -->
+    <div id="skills" class="section">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML CSS JavaScript</li>
+        <li>Python</li>
+        <li>SQL</li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div id="projects" class="section">
+      <h2>Projects</h2>
+      <ul>
+        <li><a href="home.html">Portfolio Website</a></li>
+        <li><a href="weather.html">Weather App</a></li>
+        <li><a href="calc.html">Calculator</a></li>
+        <li><a href="task.html">Task Manager</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: spoojary878@gmail.com</p>
+    </div>
+
+    <!-- Feedback -->
+    <div id="feedback" class="section">
+      <form action="https://formsubmit.co/spoojary878@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea
+          name="message"
+          placeholder="Your Feedback"
+          required
+        ></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      function showSection(id) {
+        document
+          .querySelectorAll(".section")
+          .forEach((s) => (s.style.display = "none"));
+        document.getElementById(id).style.display = "block";
+        document.getElementById("navLinks").classList.remove("show");
+      }
+
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("show");
+      }
+
+      /* Typing Animation */
+      const roles = ["Web Developer", "UI Designer", "Python Programmer"];
+      let i = 0,
+        j = 0,
+        text = "",
+        del = false;
+
+      function type() {
+        text = roles[i];
+        document.getElementById("typing").innerHTML = text.substring(0, j);
+
+        if (!del) {
+          j++;
+          if (j > text.length) {
+            del = true;
+            setTimeout(type, 1000);
+            return;
+          }
+        } else {
+          j--;
+          if (j == 0) {
+            del = false;
+            i = (i + 1) % roles.length;
+          }
+        }
+        setTimeout(type, del ? 50 : 100);
+      }
+      type();
+    </script>
+  </body>
+</html>
